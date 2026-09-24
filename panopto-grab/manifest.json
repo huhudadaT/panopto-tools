@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Panopto Grab",
+  "version": "0.1.0",
+  "description": "Finds the media a Panopto session actually transferred and downloads it. Optionally saves the session's DeliveryInfo for slide rebuilding.",
+  "permissions": [
+    "webRequest",
+    "downloads",
+    "storage",
+    "scripting",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "*://*.panopto.com/*",
+    "*://*.panopto.eu/*",
+    "*://*.cloudfront.net/*"
+  ],
+  "optional_host_permissions": [
+    "*://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Panopto Grab"
+  },
+  "options_page": "options.html"
+}

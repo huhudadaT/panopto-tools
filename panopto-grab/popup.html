@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="bar">
+    <span id="site" class="site">Panopto Grab</span>
+    <span class="spacer"></span>
+    <button id="clear" class="ghost">Clear</button>
+    <button id="options" class="ghost">Options</button>
+  </header>
+
+  <section class="panel" id="panel-session">
+    <div class="head">
+      <h2>Session</h2>
+      <span id="session-state" class="tag"></span>
+    </div>
+    <div id="session-body" class="body"></div>
+  </section>
+
+  <section class="panel" id="panel-media">
+    <div class="head">
+      <h2>Media</h2>
+      <span id="media-state" class="tag"></span>
+    </div>
+    <div id="media-body" class="body"></div>
+  </section>
+
+  <footer class="bar foot">
+    <span id="status" class="status"></span>
+  </footer>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

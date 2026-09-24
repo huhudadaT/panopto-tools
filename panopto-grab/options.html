@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+  <style>
+    body { width: auto; max-width: 620px; padding: 20px; }
+    h1 { font-size: 16px; margin: 0 0 14px; }
+    .opt { border: 1px solid var(--line); padding: 10px 12px; margin-bottom: 10px; border-radius: 4px; }
+    .opt label { display: flex; align-items: center; gap: 8px; font-weight: 600; }
+    .opt p { margin: 6px 0 0 24px; color: var(--ink-dim); }
+    .hostrow { display: flex; gap: 6px; margin-top: 8px; }
+    .hostrow input { flex: 1; font: inherit; padding: 4px 6px; border: 1px solid var(--line);
+      border-radius: 3px; background: var(--bg); color: var(--ink); }
+  </style>
+</head>
+<body>
+  <h1>Panopto Grab</h1>
+
+  <div class="opt">
+    <label><input type="checkbox" id="media"> Media capture</label>
+    <p>Watches network requests on Panopto pages for playlists and media files, reads
+       each playlist to work out whether the recording is one file or many segments,
+       and offers a download. Works without the session module.</p>
+  </div>
+
+  <div class="opt">
+    <label><input type="checkbox" id="session"> Session capture</label>
+    <p>Injects a small script into Panopto pages that reads the DeliveryInfo response,
+       which network monitoring cannot see. Gives the session title, duration, slide
+       timings, caption availability, and the direct podcast URL. Turning this off
+       unregisters the injected scripts entirely.</p>
+  </div>
+
+  <div class="opt">
+    <label>Self-hosted tenant</label>
+    <p>Panopto sites on their own domain, such as <span class="tag">panopto.example.edu</span>,
+       are outside the default permissions. Add one here.</p>
+    <div class="hostrow">
+      <input id="host" type="text" placeholder="panopto.example.edu" spellcheck="false">
+      <button id="add" class="ghost">Grant access</button>
+    </div>
+    <p id="granted"></p>
+  </div>
+
+  <p id="status" class="status"></p>
+  <script type="module" src="options.js"></script>
+</body>
+</html>
